@@ -1,0 +1,23 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My base HTML{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>My base HTML</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'users:register' %}">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
