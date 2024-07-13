@@ -21,19 +21,14 @@ let url = 'ws://' + window.location.host + '/ws/lobby/' + roomName + '/';
 
 const chatSocket = new WebSocket(url)
 
-
 chatSocket.onmessage = function(e) {
     let data = JSON.parse(e.data)
     console.log('Data:', data)
     const message = data['message'];
     const messageUsername = data['username']
 
-    if (messageUsername && message) {
-        console.log(`Message from ${messageUsername}: ${message}`);  // Debugging line
+    if (messageUsername && message)
         document.querySelector('#chat-log').value += (messageUsername + ': ' + message + '\n');   
-    } else {
-        console.log('Username is not defined in the received data'); // Debugging line
-    }
 };
 
 chatSocket.onclose = function(e) {

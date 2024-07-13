@@ -1,3 +1,5 @@
+<!-- users/templates/users/register.html -->
+
 {% extends 'base.html' %}
 
 {% block title %}Register{% endblock %}
@@ -9,4 +11,19 @@
     {{ form.as_p }}
     <button type="submit">Register</button>
 </form>
+{% if form.errors %}
+    <div class="errors">
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_fields_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
 {% endblock %}

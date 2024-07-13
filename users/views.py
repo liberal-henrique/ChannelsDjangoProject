@@ -1,3 +1,4 @@
+#<!-- users/views.py -->
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
@@ -9,16 +10,12 @@ def register(request:HttpRequest) -> HttpResponse:
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('lobby')
+            return redirect('users:login')
         #
     else:
         form = UserCreationForm()
     #
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/register.html', {'form': form, 'current_page': 'register'})
 #
 
 def user_login(request: HttpRequest) -> HttpResponse:
@@ -37,10 +34,10 @@ def user_login(request: HttpRequest) -> HttpResponse:
     else:
         form = CustomLoginForm()
     #
-    return render(request, 'users/login.html', {'form': form})
+    return render(request, 'users/login.html', {'form': form, 'current_page': 'login'})
 #
 
 def user_logout(request:HttpResponse) -> HttpResponse:
     logout(request)
-    return redirect('login')
+    return redirect('users:login')
 #

@@ -1,1 +1,70 @@
 c8H10N4O2!2020
+
+asfsdfasdfasfd!2020
+
+
+
+BackLog
+
+
+- Reorganizar o código
+
+- Como realizar o uso de um template externo ao meu app para dar sync a múltiplos projetos
+Add no settings, depois import no html, 
+
+
+
+- Criar um link para o chat/login (DONE)
+- A mensagem ser apresentada logo após o Nome do Usuário (Done)
+- Possibilitar que diferentes users entrem na mesma room_name e se comunicarem (DONE)
+- Fazer mensagens vazias não serem enviadas (Done)
+- How can I use the same Javascript script to make the same room’s channel criação a partir de diferentes pontos da app (DONE)
+
+- realizar o logout do usuário (DONE)
+- Verificar se eu estiver logado e oferecer a opção de logout (DONE)
+
+
+
+Game
+- Pesquisar se o JSON é mesmo a melhor implementação
+- Pesquisar a respeito do JsonWebsocketConsumer
+- Criar JSONS 
+- Pesquisar como enviar JSON via Channels.
+- Pesquisar como realizar o parse desse JSON e utilizar as informações
+- Como correr o game como Host e como standard.
+- Como criar um jogo dentro de uma room
+- Fazer a aula de channels e as razões pela qual eu gosto disso
+
+
+
+Tests did in the chat
+Eu tentei registrar o mesmo usuário e a mensagem de erro foi impressa na tela.
+
+
+
+I have a chat develop with Channels in Django. 
+I used channels layers to possibilitate that different Consumers instances 
+communicate each other. I will create two diffent types of groups in this channels.
+One group will be a chat group and a game group.
+The game group will consist in a group to play a ping pong version which handle multiplayers.
+What are the possible ways to send the data related to the paddle and the ball through the group.
+
+
+Os channels em Django são por padrão estruturados em JSON format?
+    Não, o desenvolvedor pode escolher em qual formato as mensagens serão enviadas pois o 
+channels não obriga nenhum formato.
+
+Seria melhor criar outra app para o jogo? Assim continuaria a respeitar a "separation of concerns"?
+ Yes, creating a separate app within your Django project to handle the game scope can be a good idea, 
+especially if you want to respect the separation of concerns. This approach keeps your project organized 
+and modular, making it easier to manage and scale.
+
+In this game I would like to create two types of players one of them will be the Host and the other 
+will be just a player. The host will be responsable to share Ball and paddle information throught the 
+group and the rest of the player will share just the paddle information.
+
+   1- Define Roles for Players
+   2- Set Up WebSocket Consumers to Handle Different Roles
+   3- Broadcast Messages from Host and Players
+   4- Update Game State on the Client Side
+   5- Handle Match Results
