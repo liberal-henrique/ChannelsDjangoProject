@@ -10,3 +10,4 @@ media/
 staticfiles/
 venv/
 .env/
+pass.txt
