@@ -27,18 +27,28 @@ Add no settings, depois import no html,
 
 Game
 - Pesquisar se o JSON é mesmo a melhor implementação
+- Criar JSONS (DONE)
+    Já estou a fazer isso desde o início pois o meu script está a enviar mensagens no format JSON.
+    For a ping pong game, JSON is typically sufficient and easy to implement. If you face 
+    performance issues or need more efficiency, consider using a binary format like MessagePack.
+
 - Pesquisar a respeito do JsonWebsocketConsumer
-- Criar JSONS 
+    Não será preciso com o Setup atual poderemos utilizar o JSON
+
 - Pesquisar como enviar JSON via Channels.
-- Pesquisar como realizar o parse desse JSON e utilizar as informações
+    Já estou a fazer isso. Minhas mensagens já estavam a ser convertidas para o JSON format.
+
+- Pesquisar como realizar o parse desse JSON e utilizar as informações.
+
 - Como correr o game como Host e como standard.
+        Posso definir esses Roles a medida que o conecto os players. Isso será feito dentro do Consumers
+    da aplicação do game. Dessa forma, depois no meu javascript poderei enviar as informações referentes
+    a cada role da sua devida forma.
 - Como criar um jogo dentro de uma room
-- Fazer a aula de channels e as razões pela qual eu gosto disso
+        Primeiro vou criar uma aplicação em separado para o Game. Assim, terei consumers, views, scripts 
+    próprios para cada elemento do game.
 
 
-
-Tests did in the chat
-Eu tentei registrar o mesmo usuário e a mensagem de erro foi impressa na tela.
 
 
 
@@ -68,3 +78,30 @@ group and the rest of the player will share just the paddle information.
    3- Broadcast Messages from Host and Players
    4- Update Game State on the Client Side
    5- Handle Match Results
+
+
++ Basta criar um if na func() game.update() para saber o Role do player e quais
+information serão enviadas
+
+In this setup:
+    The Vite frontend maintains the game interface and communicates with the Django backend via WebSockets.
+    The Django backend (using Channels) handles the game state and broadcasts updates to all connected clients.
+    The frontend sends player actions to the backend, and the backend processes these actions and broadcasts the results back to all players.
+
+
+
+
+- Criar um game app which can create new rooms with a specific number of users and a name for this room
+        - Isso será necessário assim como o nome da room é exigido no chat
+
+- Criar um Game  Django app
+
+- Fazer a exigência de número de players e de nome para a room
+
+- Criar o consumers e 
+
+
+- Fazer a aula de channels e as razões pela qual eu gosto disso
+
+- Entender e explicar como o vite funciona e se isso será um problema para a integração com o app do Django
+        - Realizarei o decouple do game para fora do vite?

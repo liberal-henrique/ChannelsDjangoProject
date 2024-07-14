@@ -1,0 +1,4 @@
+
+Tests did in the chat
+Eu tentei registrar o mesmo usuário e a mensagem de erro foi impressa na tela.
+
