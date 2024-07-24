@@ -1,4 +1,96 @@
 
-Tests did in the chat
-Eu tentei registrar o mesmo usuário e a mensagem de erro foi impressa na tela.
+// • Spa e back and forward options
+// • Tournament
+// • Matchmaking System
+// • Website protected against sql injections/XSS
+// • Https connection
+
+c8H10N4O2!2020
+
+asfsdfasdfasfd!2020
+
+
+
+                                                    BackLog
+
+Estrutura
+
+- Simplificando o código para que eu tenha apenas um WebSocket em todo o meu projeto. Dessa forma,
+independente de qual seja a informação, eu possa apenas usar meu socket para enviar e receber dados.
+Com isso eu poderia também abrir ele logo de início e por último fechá-lo.
+    - Create a WebSocketManager. 
+    - Utilizar apenas um websocket para comunicar tanto o Game quanto o chat. Estou a duplicar
+ferramentas de trabalho de modo a complexificar o projeto.
+
+- Onde ele está a guardar o número de players? Achei no script local_menu
+        - Comunicar isso com o Game no HandShake, assim poderei criar o devida número de 
+    users no backend 
+
+- Form validation
+- Proteger contra SQL injection
+- Fazer a aula de channels e as razões pela qual eu gosto disso
+- Pesquisar qual a diferença entre WS e WSS
+    /home/liberal/Desktop/transcendence_research/ws_wss.odt
+    - Adaptar as comunicações estabelecidas de WS para WSS. (Depende do NGINX)
+
+
+
+Chat
+- Abrir uma nova tela do chat na private chat
+- Integrar o chat com o frontend
+- Perceber qual seria o melhor comportamento para a proposta de private room;
+        - Seria interessante perguntar se a pessoa quer entrar no chat privado?
+
+- Garantir que não haja duas rooms com o mesmo nome;
+- Conseguir criar um lobby de chat a partir da sala de game que incluirá
+todos os elementos daquele grupo
+- Private rooms mostraram o nome Private Room ou apresentar os integrantes
+
+
+Game
+- Criar game rooms dinamicamente;
+- Garantir que não haja duas rooms com o mesmo nome;
+- Já consigo transmitir as atualizações do jogo de um lado para o outro. Agr, preciso
+fazer algo com isso.
+- Criar N players assim que o jogador indica na tela inicial quantos irão participar
+- Como criar um jogo dentro de uma room?
+
+
+torneio
+- estruturar um torneio
+        - Sala de jogos com os quais os elementos do grupo jogaram entre si e
+    os perdedores serão eliminados de cada Room
+- No início do game o user tem de ter a oportunidade de escolher o Alias
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I have a chat develop with Channels in Django. 
+I used channels layers to possibilitate that different Consumers instances 
+communicate each other. I will create two diffent types of groups in this channels.
+One group will be a chat group and a game group.
+The game group will consist in a group to play a ping pong version which handle multiplayers.
+What are the possible ways to send the data related to the paddle and the ball through the group.
+
+
+
+In this setup:
+    The Vite frontend maintains the game interface and communicates with the Django backend via WebSockets.
+    The Django backend (using Channels) handles the game state and broadcasts updates to all connected clients.
+    The frontend sends player actions to the backend, and the backend processes these actions and broadcasts the results back to all players.
 

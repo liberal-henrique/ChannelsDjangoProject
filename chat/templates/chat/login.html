@@ -13,4 +13,11 @@
     <button type="submit">create chat</button>
 </form>
 
+<h3>Registered Users</h3>
+<select id="user-list">
+    {% for user in users %}
+        <option value="{{ user.username }}">{{ user.username }}</option>
+    {% endfor %}
+</select>
+
 {% endblock %}

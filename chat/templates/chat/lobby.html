@@ -15,7 +15,19 @@
     <input id="chat-message-input" type="text" size="30"><br>
     <button id="chat-message-submit">Send</button>
 
-    <script type="text/javascript" src="{% static 'chat.js' %}"></script>
+    <h3>Start a private chat</h3>
+    <form id="private-chat-form">
+        <select id="user-select" name="user_select">
+            {% for user in users %}
+                <option value="{{ user.username }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <input id="private-chat-room" name="private_chat_room" type="text" size="30" placeholder="Enter Room Name"> <br>
+        <button id="private-chat-submit" type="submit">Private Chat</button>
+    </form>
+
+
+    <script type="module" src="{% static 'chat.js' %}"></script>
 </body>
 {% endblock %}
 
